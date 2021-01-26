@@ -75,6 +75,13 @@ export class Users extends Entity {
   })
   departure_flight: string;
 
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  departure_date: string;
+
   @property({
     type: 'string',
     required: true,
@@ -121,7 +128,7 @@ export class Users extends Entity {
     type: 'string',
     required: true,
   })
-  insurace_company: string;
+  insurance_company: string;
 
   @property({
     type: 'string',
