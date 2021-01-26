@@ -1,19 +1,19 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
-export class User extends Entity {
-  @property({
-    type: 'string',
-    required: true,
-  })
-  given_name: string;
-
+export class Users extends Entity {
   @property({
     type: 'number',
     id: true,
     generated: true,
   })
   id?: number;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  given_name: string;
 
   @property({
     type: 'string',
@@ -76,16 +76,10 @@ export class User extends Entity {
   departure_flight: string;
 
   @property({
-    type: 'date',
-    required: true,
-  })
-  date_of_departure: string;
-
-  @property({
     type: 'string',
     required: true,
   })
-  accomodation1: string;
+  accommodation1: string;
 
   @property({
     type: 'date',
@@ -97,7 +91,7 @@ export class User extends Entity {
     type: 'string',
     required: true,
   })
-  accomodation2: string;
+  accommodation2: string;
 
   @property({
     type: 'date',
@@ -109,7 +103,7 @@ export class User extends Entity {
     type: 'string',
     required: true,
   })
-  accomodation3: string;
+  accommodation3: string;
 
   @property({
     type: 'date',
@@ -118,16 +112,16 @@ export class User extends Entity {
   accom3_date: string;
 
   @property({
-    type: 'boolean',
+    type: 'string',
     required: true,
   })
-  insurance_covid: boolean;
+  insurance_covid: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  insurance_company: string;
+  insurace_company: string;
 
   @property({
     type: 'string',
@@ -136,10 +130,10 @@ export class User extends Entity {
   policy_no: string;
 
   @property({
-    type: 'boolean',
+    type: 'string',
     required: true,
   })
-  health_evisa: boolean;
+  health_evisa: string;
 
   @property({
     type: 'date',
@@ -147,19 +141,25 @@ export class User extends Entity {
   })
   health_evisa_date: string;
 
+  @property({
+    type: 'date',
+    required: true,
+  })
+  created_at: string;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
 
-  constructor(data?: Partial<User>) {
+  constructor(data?: Partial<Users>) {
     super(data);
   }
 }
 
-export interface UserRelations {
+export interface UsersRelations {
   // describe navigational properties here
 }
 
-export type UserWithRelations = User & UserRelations;
+export type UsersWithRelations = Users & UsersRelations;
