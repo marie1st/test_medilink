@@ -4,17 +4,21 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {TestCenter} from '../models';
 import {TestCenterRepository} from '../repositories';
@@ -39,7 +43,7 @@ export class TestCenterController {
         'application/json': {
           schema: getModelSchemaRef(TestCenter, {
             title: 'NewTestCenter',
-            
+
           }),
         },
       },
@@ -119,7 +123,7 @@ export class TestCenterController {
     },
   })
   async findById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @param.filter(TestCenter, {exclude: 'where'}) filter?: FilterExcludingWhere<TestCenter>
   ): Promise<TestCenter> {
     return this.testCenterRepository.findById(id, filter);
@@ -133,7 +137,7 @@ export class TestCenterController {
     },
   })
   async updateById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @requestBody({
       content: {
         'application/json': {
@@ -154,7 +158,7 @@ export class TestCenterController {
     },
   })
   async replaceById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @requestBody() testCenter: TestCenter,
   ): Promise<void> {
     await this.testCenterRepository.replaceById(id, testCenter);
@@ -167,7 +171,7 @@ export class TestCenterController {
       },
     },
   })
-  async deleteById(@param.path.string('id') id: string): Promise<void> {
+  async deleteById(@param.path.string('id') id: number): Promise<void> {
     await this.testCenterRepository.deleteById(id);
   }
 }

@@ -2,14 +2,14 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: 'test_medilink',
+  name: 'vernal-union-303915:us-central1:test-gothailand2021',
   connector: 'mysql',
-  url: '',
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'Digit@l101',
-  database: 'test_medilink'
+  url: 'mysql://root:P@ssword@34.69.109.131:3306/test_medilink',
+  host: '',
+  port: 0,
+  user: '',
+  password: '',
+  database: ''
 };
 
 // Observe application's life cycle to disconnect the datasource when

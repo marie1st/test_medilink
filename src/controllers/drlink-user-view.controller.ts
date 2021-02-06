@@ -4,17 +4,21 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {DrlinkUserViews} from '../models';
 import {DrlinkUserViewsRepository} from '../repositories';
@@ -39,7 +43,7 @@ export class DrlinkUserViewController {
         'application/json': {
           schema: getModelSchemaRef(DrlinkUserViews, {
             title: 'NewDrlinkUserViews',
-            
+
           }),
         },
       },
@@ -119,7 +123,7 @@ export class DrlinkUserViewController {
     },
   })
   async findById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @param.filter(DrlinkUserViews, {exclude: 'where'}) filter?: FilterExcludingWhere<DrlinkUserViews>
   ): Promise<DrlinkUserViews> {
     return this.drlinkUserViewsRepository.findById(id, filter);
@@ -133,7 +137,7 @@ export class DrlinkUserViewController {
     },
   })
   async updateById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @requestBody({
       content: {
         'application/json': {
@@ -154,7 +158,7 @@ export class DrlinkUserViewController {
     },
   })
   async replaceById(
-    @param.path.string('id') id: string,
+    @param.path.string('id') id: number,
     @requestBody() drlinkUserViews: DrlinkUserViews,
   ): Promise<void> {
     await this.drlinkUserViewsRepository.replaceById(id, drlinkUserViews);
@@ -167,7 +171,7 @@ export class DrlinkUserViewController {
       },
     },
   })
-  async deleteById(@param.path.string('id') id: string): Promise<void> {
+  async deleteById(@param.path.string('id') id: number): Promise<void> {
     await this.drlinkUserViewsRepository.deleteById(id);
   }
 }

@@ -3,11 +3,11 @@ import {Entity, model, property} from '@loopback/repository';
 @model({settings: {strict: false}})
 export class DrlinkUserViews extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
     generated: true,
   })
-  user_id?: string;
+  user_id?: number;
 
   @property({
     type: 'string',
