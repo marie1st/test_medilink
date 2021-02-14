@@ -31,6 +31,12 @@ export class DrlinkUserViews extends Entity {
     type: 'string',
     required: true,
   })
+  middlename: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   sex: string;
 
   @property({
@@ -56,6 +62,18 @@ export class DrlinkUserViews extends Entity {
     required: true,
   })
   status: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  status_covid: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  status_fit: string;
 
   @property({
     type: 'string',
@@ -127,7 +145,19 @@ export class DrlinkUserViews extends Entity {
     type: 'string',
     required: true,
   })
+  covid_photo_file_path: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   fit_file_path: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  fit_photo_file_path: string;
 
   @property({
     type: 'string',
