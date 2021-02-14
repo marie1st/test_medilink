@@ -2,9 +2,9 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: 'vernal-union-303915:us-central1:test-gothailand2021',
+  name: 'db',
   connector: 'mysql',
-  url: 'mysql://root:P@ssword@34.69.109.131:3306/test_medilink',
+  url: 'mysql://drlinkadmin@drlinkmysql:Gothailand21@drlinkmysql.mysql.database.azure.com:3306/test_medilink',
   host: '',
   port: 0,
   user: '',
